@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">serviceExample</string>
+    <string name="start">startService</string>
+    <string name="stop">stopService</string>
+    <string name="bind">bindService</string>
+    <string name="unbind">unbindService</string>
+    <string name="callBindMethod">callBindMethod</string>
+    <string name="callIntentService">callIntentService</string>
+    <string name="startPlayer">"startPlayer"</string>
+    <string name="stopPlayer">"stopPlayer"</string>
+    
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/start"
+    android:onClick="startService"
+    />
+
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/bind"
+    android:onClick="bindService"
+    />
+
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/stop"
+    android:onClick="stopService"
+    />
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/unbind"
+    android:onClick="unbindService"
+    />
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/callBindMethod"
+    android:onClick="callBindMethod"
+    />
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/callIntentService"
+    android:onClick="callIntentService"
+    />
+ <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/startPlayer"
+    android:onClick="startPlayer"
+    />
+  <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="@string/stopPlayer"
+    android:onClick="stopPlayer"
+    />
+</LinearLayout>
