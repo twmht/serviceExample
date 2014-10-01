@@ -14,8 +14,8 @@ import android.view.View;
 
 public class Main extends Activity{
     /** Called when the activity is first created. */
-	String TAG="Main";
-	private Services mService = null;
+    String TAG="Main";
+    private Services mService = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -30,53 +30,53 @@ public class Main extends Activity{
         stopService(new Intent(this,Services.class));
     }
     public void bindService(View view){
-    	Intent intent = new Intent(Main.this,Services.class);
-    	this.bindService(intent, mServConn, BIND_ABOVE_CLIENT);	
+        Intent intent = new Intent(Main.this,Services.class);
+        this.bindService(intent, mServConn, BIND_ABOVE_CLIENT|BIND_AUTO_CREATE);	
     }
     public void unbindService(View view){
-          mService = null;
-          this.unbindService(mServConn);
+        mService = null;
+        this.unbindService(mServConn);
     }
     private ServiceConnection mServConn = new ServiceConnection() {
-    	  // bind Service過程中,系統會呼叫執行以下程式碼
-    	  @Override
-    	  public void onServiceConnected(ComponentName name, IBinder service) {
+        // bind Service過程中,系統會呼叫執行以下程式碼
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
 
-    		  Log.i(TAG,"onServiceConnected");
-    	   mService = ((LocalBinder) service).getService();
-    	  }
+            Log.i(TAG,"onServiceConnected");
+            mService = ((LocalBinder) service).getService();
+        }
 
-    	  @Override
-    	  public void onServiceDisconnected(ComponentName name) {
-              mService = null;
-    	  }
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
 
-    	 };
+    };
     public void callBindMethod(View view){
-    	mService.doSomeThing();
+        mService.doSomeThing();
     }
-      public void callIntentService(View view){
-		Log.d(TAG,"callIntentService");
+    public void callIntentService(View view){
+        Log.d(TAG,"callIntentService");
         startService(new Intent(this,HelloIntentService.class));
     }
-    
+
     @Override
     protected void onDestroy(){
         super.onDestroy();
         if(mService!=null){
-                this.unbindService(mServConn);
+            this.unbindService(mServConn);
         }
     } 
     public void startPlayer(View v) {
         Intent i=new Intent(this, PlayerService.class);
-        
+
         i.putExtra(PlayerService.EXTRA_PLAYLIST, "main");
         i.putExtra(PlayerService.EXTRA_SHUFFLE, true);
-        
+
         startService(i);
-      }
-      
-      public void stopPlayer(View v) {
+    }
+
+    public void stopPlayer(View v) {
         stopService(new Intent(this, PlayerService.class));
-      }
+    }
 }
